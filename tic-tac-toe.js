@@ -34,10 +34,6 @@ window.onload = function() {
             //set postion in game state to value X or O
             game_state[square.getAttribute('location')]=square.textContent;
             
-            checkWinner(Number(square.getAttribute('location')),square.textContent);
-            // console.log(game_state);
-            // console.log(element.getAttribute('location'));
-            // console.log(Object.values(squares).indexOf(element));
         });//end Click
 
 
@@ -47,6 +43,9 @@ window.onload = function() {
 
         square.addEventListener('mouseleave',function(){
             square.classList.remove('hover')
+            if (square.textContent!==""){
+                checkWinner(Number(square.getAttribute('location')),square.textContent);
+            }
         });//end mouse leave
     }//End of For
 
