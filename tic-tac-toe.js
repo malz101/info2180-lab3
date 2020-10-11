@@ -27,19 +27,27 @@ window.onload = function() {
             else{
                 classes.add('X');
                 square.textContent='X';
-            }
+            }//Endif
 
             //set postion in game state to value X or O
             game_state[square.getAttribute('location')]=square.textContent;
             // console.log(game_state);
             // console.log(element.getAttribute('location'));
             // console.log(Object.values(squares).indexOf(element));
-        });
-    }
+        });//end Click
 
 
-}
+        square.addEventListener('mouseenter',function(){
+             square.classList.add('hover');   
+        });//End mouse enter
 
+        square.addEventListener('mouseleave',function(){
+            square.classList.remove('hover')
+        });//end mouse leave
+    }//End of For
+
+
+}//End of onLoad
     
     // board.querySelectorAll(".square").forEach((element)=>{
     // });
