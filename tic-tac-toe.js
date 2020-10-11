@@ -4,6 +4,7 @@ window.onload = function() {
     const board = document.getElementById("board");
     const squares = board.children;
     let game_state = Array(squares.length).fill(null);
+    const message = document.getElementById('status').textContent;
     
     
     for(let count=0; count<squares.length;count++){
@@ -48,6 +49,20 @@ window.onload = function() {
             }
         });//end mouse leave
     }//End of For
+
+    const button = document.querySelector("button");
+    button.addEventListener('click',function(){
+        game_state = Array(squares.length).fill(null);
+        for (const square of squares) {
+            square.textContent="";
+            square.classList.remove('X');
+            square.classList.remove('O');
+        }
+        // console.log(game_state);
+        let status = document.getElementById('status');
+        status.textContent=message;
+        status.classList.remove('you-won');
+    });
 
 
     function checkWinner(location,play){
